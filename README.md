@@ -113,19 +113,26 @@ docker compose logs -f       # View logs (optional)
 2. Install **Remote-SSH** extension (`ms-vscode-remote.remote-ssh`)
 3. `Ctrl+Shift+P` → `Remote-SSH: Connect to Host`
 4. Enter: `winccoa@localhost -p 2222`
-5. Password: `winccoasecret`
+5. Password: (from your `.env` file, default: `winccoasecret`)
 
-**🎉 Extensions auto-install on first connect:**
+**🎉 Install WinCC OA Extensions:**
 
-When VS Code connects, it automatically installs these extensions:
+After connecting, VS Code shows a popup to install recommended extensions:
+- Click **"Install All"** to install all WinCC OA extensions automatically
+
+**Or install manually:**
+```bash
+# Inside VS Code Remote-SSH terminal
+./scripts/install-extensions.sh
+```
+
+**Extensions included:**
 - **WinCC OA Project Admin** - Create and manage WinCC OA projects
 - **WinCC OA LogViewer** - View and analyze WinCC OA logs in real-time
 - **WinCC OA CTL Language** - Syntax highlighting and IntelliSense for `.ctl` files
 - **WinCC OA Script Actions** - Run CTL scripts directly from VS Code
 - **WinCC OA Tests** - Test framework integration
 - **WinCC OA MCP Server** - Model Context Protocol server
-
-> 💡 **Tip:** VS Code will prompt you to install recommended extensions. Click "Install All" to get started quickly!
 
 ### 5. Working with Projects
 
