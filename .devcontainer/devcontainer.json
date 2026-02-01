@@ -1,6 +1,11 @@
 {
   "name": "WinCC OA Development",
   
+  // Use docker-compose.yml for container configuration
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "winccoa",
+  "workspaceFolder": "/home/winccoa/WinCCOA_Proj/DevContainer",
+  
   // Remote User festlegen - WICHTIG für PostgreSQL!
   "remoteUser": "winccoa",
   

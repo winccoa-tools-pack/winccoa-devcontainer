@@ -109,12 +109,16 @@ docker compose logs -f       # View logs (optional)
 
 ### 4. Connect with VS Code
 
-**Option A: DevContainer (Automatic Extension Install)** ✨ **RECOMMENDED**
+**DevContainer Mode (Automatic Extension Install)** ✨ **RECOMMENDED**
 1. Open VS Code
-2. Install **Dev Containers** extension (`ms-vscode-remote.containers`)
-3. `Ctrl+Shift+P` → `Dev Containers: Open Folder in Container`
-4. Select this repository folder
+2. Install **Dev Containers** extension (`ms-vscode-remote.remote-containers`)
+3. Open this repository folder in VS Code
+4. **Popup appears:** "Reopen in Container" → **Click it!**
 5. **Extensions install automatically!** ✅
+
+> 💡 **No popup?** Press `Ctrl+Shift+P` → `Dev Containers: Reopen in Container`
+
+> ⚠️ **Don't run `make up` first!** Let VS Code start the container automatically.
 
 **Option B: Remote-SSH (Manual Extension Install)**
 1. Open VS Code
