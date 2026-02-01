@@ -109,20 +109,23 @@ docker compose logs -f       # View logs (optional)
 
 ### 4. Connect with VS Code
 
+**Option A: DevContainer (Automatic Extension Install)** ✨ **RECOMMENDED**
+1. Open VS Code
+2. Install **Dev Containers** extension (`ms-vscode-remote.containers`)
+3. `Ctrl+Shift+P` → `Dev Containers: Open Folder in Container`
+4. Select this repository folder
+5. **Extensions install automatically!** ✅
+
+**Option B: Remote-SSH (Manual Extension Install)**
 1. Open VS Code
 2. Install **Remote-SSH** extension (`ms-vscode-remote.remote-ssh`)
 3. `Ctrl+Shift+P` → `Remote-SSH: Connect to Host`
 4. Enter: `winccoa@localhost -p 2222`
 5. Password: (from your `.env` file, default: `winccoasecret`)
+6. **Click "Install All"** when popup appears for recommended extensions
 
-**🎉 Install WinCC OA Extensions:**
-
-After connecting, VS Code shows a popup to install recommended extensions:
-- Click **"Install All"** to install all WinCC OA extensions automatically
-
-**Or install manually:**
+**Or install manually in VS Code terminal:**
 ```bash
-# Inside VS Code Remote-SSH terminal
 ./scripts/install-extensions.sh
 ```
 
