@@ -3,7 +3,7 @@
 
 # Variables
 CONTAINER_NAME := winccoa
-WINCCOA_ZIP := WinCCOA-3.21.0-debian.x86_64.zip
+WINCCOA_ZIP := installer/WinCCOA-3.21.0-debian.x86_64.zip
 
 # Default target - show help
 help:

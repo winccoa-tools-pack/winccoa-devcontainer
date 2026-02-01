@@ -1,5 +1,6 @@
 # WinCC OA Installation Files - NEVER COMMIT THESE!
-WinCCOA-*.zip
+installer/*.zip
+installer/*.deb
 *.deb
 
 # Projects (user-specific)

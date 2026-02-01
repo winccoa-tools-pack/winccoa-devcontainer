@@ -57,7 +57,7 @@
 1. Go to https://www.winccoa.com/downloads/
 2. Download: **WinCC OA 3.21 for Debian Linux (x86_64)**
    - File name: `WinCCOA-3.21.0-debian.x86_64.zip` (or similar)
-3. Place the ZIP file in the root of this repository
+3. Place the ZIP file in the **`installer/`** directory
 4. **DO NOT commit this file** - it's already in `.gitignore`
 
 ---
@@ -70,8 +70,8 @@
 git clone https://github.com/winccoa-tools-pack/winccoa-devcontainer.git
 cd winccoa-devcontainer
 
-# Place your WinCC OA ZIP file here (see Prerequisites)
-# Expected: WinCCOA-3.21.0-debian.x86_64.zip
+# Place your WinCC OA ZIP file in the installer/ directory
+# Expected: installer/WinCCOA-3.21.0-debian.x86_64.zip
 ```
 
 ### 2. Add Your Project (Optional)
@@ -167,6 +167,8 @@ winccoa-devcontainer/
 ├── .vscode/
 │   ├── extensions.json           # Recommended extensions for all users
 │   └── settings.json             # Workspace settings (terminal, line endings)
+├── installer/                    # 🔸 Place WinCC OA ZIP file here
+│   └── README.md                 # Installation instructions
 ├── projects/                     # 🔸 Place your WinCC OA projects here
 │   └── .gitkeep
 ├── scripts/                      # 🔧 Helper scripts (alternative to Makefile)
@@ -181,7 +183,8 @@ winccoa-devcontainer/
 ├── LICENSE                       # MIT License
 ├── Makefile                      # 🔧 Build automation (make build, make up, etc.)
 ├── README.md                     # This file
-├── ssh-startup.sh                # SSH daemon + key management
+├── installer/                    # ⚠️ Download WinCC OA ZIP here (not in repo!)
+    └── WinCCOA-3.21.0-debian.x86_64.zip
 ├── VERSION                       # Current version (semantic versioning)
 └── WinCCOA-3.21.0-debian.x86_64.zip  # ⚠️ Download manually (not in repo!)
 ```
@@ -189,6 +192,7 @@ winccoa-devcontainer/
 ### Key Directories
 
 - **`.devcontainer/`** - VS Code DevContainer config (auto-installs extensions when connecting)
+- **`installer/`** - Place the WinCC OA ZIP file here (gitignored)
 - **`.vscode/`** - Workspace settings and recommended extensions for all users
 - **`projects/`** - Mount your WinCC OA projects here (gitignored except `.gitkeep`)
 - **`scripts/`** - Helper scripts for building and cleaning

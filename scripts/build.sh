@@ -7,9 +7,10 @@ echo "Building WinCC OA DevContainer"
 echo "========================================="
 
 # Check if WinCC OA ZIP exists
-if [ ! -f WinCCOA-3.21.0-debian.x86_64.zip ]; then
-    echo "❌ ERROR: WinCCOA-3.21.0-debian.x86_64.zip not found!"
+if [ ! -f installer/WinCCOA-3.21.0-debian.x86_64.zip ]; then
+    echo "❌ ERROR: installer/WinCCOA-3.21.0-debian.x86_64.zip not found!"
     echo "Please download it from https://www.winccoa.com/downloads/"
+    echo "and place it in the installer/ directory."
     exit 1
 fi
 
