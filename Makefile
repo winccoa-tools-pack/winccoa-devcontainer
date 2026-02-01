@@ -5,6 +5,14 @@
 CONTAINER_NAME := winccoa
 WINCCOA_ZIP := installer/WinCCOA-3.21.0-debian.x86_64.zip
 
+# Load .env file if it exists
+-include .env
+export
+
+# Use defaults if not set in .env
+SSH_PORT ?= 2222
+WINCCOA_PASSWORD ?= winccoasecret
+
 # Default target - show help
 help:
 	@echo "========================================="
@@ -48,7 +56,7 @@ up:
 	@echo "Starting WinCC OA DevContainer..."
 	docker compose up -d
 	@echo "✅ Container started!"
-	@echo "   Connect via SSH: ssh winccoa@localhost -p 2222 (password: winccoasecret)"
+	@echo "   Connect via SSH: ssh winccoa@localhost -p $(SSH_PORT) (password: $(WINCCOA_PASSWORD))"
 
 # Stop containers
 down:
@@ -72,14 +80,14 @@ shell:
 # SSH into container (requires sshpass)
 ssh:
 	@command -v sshpass >/dev/null 2>&1 && \
-		sshpass -p winccoasecret ssh -o StrictHostKeyChecking=no winccoa@localhost -p 2222 || \
+		sshpass -p $(WINCCOA_PASSWORD) ssh -o StrictHostKeyChecking=no winccoa@localhost -p $(SSH_PORT) || \
 		(echo "💡 Tip: Install sshpass for passwordless SSH:" && \
 		 echo "   sudo apt install sshpass" && \
 		 echo "" && \
 		 echo "Or connect manually:" && \
-		 echo "   ssh winccoa@localhost -p 2222" && \
-		 echo "   Password: winccoasecret" && \
-		 ssh winccoa@localhost -p 2222)
+		 echo "   ssh winccoa@localhost -p $(SSH_PORT)" && \
+		 echo "   Password: $(WINCCOA_PASSWORD)" && \
+		 ssh winccoa@localhost -p $(SSH_PORT))
 
 # Clean up containers and images
 clean:

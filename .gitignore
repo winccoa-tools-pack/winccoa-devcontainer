@@ -3,6 +3,9 @@ installer/*.zip
 installer/*.deb
 *.deb
 
+# Environment variables (may contain secrets)
+.env
+
 # Projects (user-specific)
 projects/*
 !projects/.gitkeep

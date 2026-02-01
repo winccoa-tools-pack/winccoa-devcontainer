@@ -1,20 +1,26 @@
 services:
   winccoa:
-    build: .
+    build:
+      context: .
+      args:
+        WINCCOA_PASSWORD: ${WINCCOA_PASSWORD:-winccoasecret}
+        ROOT_PASSWORD: ${ROOT_PASSWORD:-winccoasecret}
     container_name: winccoa
     user: "0:0"  # Start as root for SSH, entrypoint switches to winccoa
     
+    environment:
+      - LANG=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
+    
     volumes:
-      # Optional: Mount projects (overrides image projects)
-      # - ./projects:/home/winccoa/WinCCOA_Proj
       # SSH host keys persistent (survive rebuilds)
       - ./ssh-keys:/ssh-keys
     
     ports:
-      - "2222:22"
-      - "4999:4999"
-      - "5678:5678"
-      - "4777:4777"
+      - "${SSH_PORT:-2222}:22"
+      - "${WINCCOA_EVENT_PORT:-4999}:4999"
+      - "${WINCCOA_UI_PORT:-5678}:5678"
+      - "${WINCCOA_DIST_PORT:-4777}:4777"
     
     # Keep container running
     stdin_open: true

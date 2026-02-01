@@ -72,6 +72,10 @@ cd winccoa-devcontainer
 
 # Place your WinCC OA ZIP file in the installer/ directory
 # Expected: installer/WinCCOA-3.21.0-debian.x86_64.zip
+
+# Optional: Customize passwords and ports
+cp .env.example .env
+# Edit .env to change passwords (default: winccoasecret)
 ```
 
 ### 2. Add Your Project (Optional)
@@ -167,6 +171,7 @@ winccoa-devcontainer/
 ├── .vscode/
 │   ├── extensions.json           # Recommended extensions for all users
 │   └── settings.json             # Workspace settings (terminal, line endings)
+├── .env.example                  # Environment variables template
 ├── installer/                    # 🔸 Place WinCC OA ZIP file here
 │   └── README.md                 # Installation instructions
 ├── projects/                     # 🔸 Place your WinCC OA projects here
@@ -202,27 +207,52 @@ winccoa-devcontainer/
 
 ## 🔧 Configuration
 
+### Environment Variables (.env)
+
+All passwords and ports can be customized via `.env` file:
+
+```bash
+# Copy example configuration
+cp .env.example .env
+
+# Edit .env with your preferred values
+nano .env
+```
+
+**Available options:**
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `WINCCOA_PASSWORD` | `winccoasecret` | Password for `winccoa` user (SSH/sudo) |
+| `ROOT_PASSWORD` | `winccoasecret` | Password for `root` user |
+| `SSH_PORT` | `2222` | Host port for SSH access |
+| `WINCCOA_EVENT_PORT` | `4999` | Event Manager port |
+| `WINCCOA_UI_PORT` | `5678` | UI Manager port |
+| `WINCCOA_DIST_PORT` | `4777` | Distribution Manager port |
+
+**Security Note:** The `.env` file is gitignored and won't be committed. Change passwords before production use!
+
 ### Default Credentials
+
+If you don't create a `.env` file, these defaults are used:
 
 | Service | User | Password |
 |---------|------|----------|
 | SSH | `winccoa` | `winccoasecret` |
 | Root | `root` | `winccoasecret` |
 
-**Change passwords:** Edit `Dockerfile` line with `chpasswd` commands before building.
-
 ### Ports
 
-| Port | Service | Description |
-|------|---------|-------------|
-| 2222 | SSH | VS Code Remote connection |
-| 4999 | WinCC OA Event | Event Manager |
-| 5678 | WinCC OA UI | UI Manager |
-| 4777 | WinCC OA Dist | Distribution |
+Default port mapping (customizable via `.env`):
 
-**Change ports:** Edit `docker-compose.yml` → `ports` section
+| Host Port | Container Port | Service |
+|-----------|----------------|---------|
+| 2222 | 22 | SSH (VS Code Remote) |
+| 4999 | 4999 | WinCC OA Event Manager |
+| 5678 | 5678 | WinCC OA UI Manager |
+| 4777 | 4777 | WinCC OA Distribution |
 
-### Environment Variables
+### Additional Configuration
 
 ```yaml
 # In docker-compose.yml (optional)

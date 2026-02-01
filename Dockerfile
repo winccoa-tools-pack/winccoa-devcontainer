@@ -16,6 +16,10 @@ RUN unzip /tmp/WinCCOA-3.21.0-debian.x86_64.zip -d /tmp/winccoa
 # ========================================
 FROM debian:12
 
+# Build arguments for passwords
+ARG WINCCOA_PASSWORD=winccoasecret
+ARG ROOT_PASSWORD=winccoasecret
+
 # Disable prompts during installation
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -50,15 +54,12 @@ RUN mkdir /var/run/sshd && \
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
-# Make SSH keys persistent - copy them at startup
-COPY --chmod=755 ssh-startup.sh /usr/local/bin/ssh-startup.sh
-
 # Create user and set passwords
-RUN echo 'root:winccoasecret' | chpasswd && \
+RUN echo "root:${ROOT_PASSWORD}" | chpasswd && \
     useradd -m -s /bin/bash winccoa && \
-    echo 'winccoa:winccoasecret' | chpasswd && \
+    echo "winccoa:${WINCCOA_PASSWORD}" | chpasswd && \
     usermod -aG sudo winccoa && \
-    echo 'winccoa ALL=(ALL) NOPASSWD: /usr/sbin/sshd, /usr/local/bin/ssh-startup.sh' >> /etc/sudoers
+    echo 'winccoa ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Create project folders
 RUN mkdir -p /opt/projects && \
