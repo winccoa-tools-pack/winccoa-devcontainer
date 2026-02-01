@@ -1,0 +1,6 @@
+{
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "files.eol": "\n",
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": false
+}

@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "richardjanisch.winccoa-project-admin",
+    "richardjanisch.winccoa-vscode-logviewer",
+    "richardjanisch.winccoa-ctrllang",
+    "richardjanisch.winccoa-mcp-server",
+    "richardjanisch.winccoa-script-actions",
+    "richardjanisch.winccoa-vscode-tests"
+  ]
+}

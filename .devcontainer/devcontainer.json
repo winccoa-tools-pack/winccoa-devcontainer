@@ -1,0 +1,26 @@
+{
+  "name": "WinCC OA Development",
+  
+  // Remote User festlegen - WICHTIG für PostgreSQL!
+  "remoteUser": "winccoa",
+  
+  // Extensions die automatisch installiert werden
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // WinCC OA Extensions
+        "richardjanisch.winccoa-project-admin",
+        "richardjanisch.winccoa-vscode-logviewer",
+        "richardjanisch.winccoa-ctrllang",
+        "richardjanisch.winccoa-mcp-server",
+        "richardjanisch.winccoa-script-actions",
+        "richardjanisch.winccoa-vscode-tests"
+      ],
+      
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.eol": "\n"
+      }
+    }
+  }
+}
