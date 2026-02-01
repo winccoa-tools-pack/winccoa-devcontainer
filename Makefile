@@ -71,9 +71,15 @@ shell:
 
 # SSH into container (requires sshpass)
 ssh:
-	@command -v sshpass >/dev/null 2>&1 || \
-		(echo "❌ sshpass not installed. Use: ssh winccoa@localhost -p 2222" && exit 1)
-	sshpass -p winccoasecret ssh -o StrictHostKeyChecking=no winccoa@localhost -p 2222
+	@command -v sshpass >/dev/null 2>&1 && \
+		sshpass -p winccoasecret ssh -o StrictHostKeyChecking=no winccoa@localhost -p 2222 || \
+		(echo "💡 Tip: Install sshpass for passwordless SSH:" && \
+		 echo "   sudo apt install sshpass" && \
+		 echo "" && \
+		 echo "Or connect manually:" && \
+		 echo "   ssh winccoa@localhost -p 2222" && \
+		 echo "   Password: winccoasecret" && \
+		 ssh winccoa@localhost -p 2222)
 
 # Clean up containers and images
 clean:
