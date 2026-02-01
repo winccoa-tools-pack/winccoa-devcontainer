@@ -1,0 +1,26 @@
+# WinCC OA Installation Files - NEVER COMMIT THESE!
+WinCCOA-*.zip
+*.deb
+
+# Projects (user-specific)
+projects/*
+!projects/.gitkeep
+!projects/.devcontainer/
+
+# SSH Keys (persistent, user-specific)
+ssh-keys/*
+!ssh-keys/.gitkeep
+
+# VS Code (allow extensions.json and settings.json for workspace setup)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.code-workspace
+
+# Docker
+.dockerignore
+
+# System
+.DS_Store
+Thumbs.db
+*.log
