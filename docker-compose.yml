@@ -13,6 +13,8 @@ services:
       - LC_ALL=en_US.UTF-8
     
     volumes:
+      # Projects directory mounted for live editing
+      - ./projects:/home/winccoa/WinCCOA_Proj
       # SSH host keys persistent (survive rebuilds)
       - ./ssh-keys:/ssh-keys
     
