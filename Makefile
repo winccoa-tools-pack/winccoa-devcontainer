@@ -56,7 +56,7 @@ up:
 	@echo "Starting WinCC OA DevContainer..."
 	docker compose up -d
 	@echo "✅ Container started!"
-	@echo "   Connect via SSH: ssh winccoa@localhost -p $(SSH_PORT) (password: $(WINCCOA_PASSWORD))"
+	@echo "   Connect via SSH: ssh winccoa@localhost -p $(SSH_PORT)"
 
 # Stop containers
 down:
@@ -86,7 +86,6 @@ ssh:
 		 echo "" && \
 		 echo "Or connect manually:" && \
 		 echo "   ssh winccoa@localhost -p $(SSH_PORT)" && \
-		 echo "   Password: $(WINCCOA_PASSWORD)" && \
 		 ssh winccoa@localhost -p $(SSH_PORT))
 
 # Clean up containers and images
