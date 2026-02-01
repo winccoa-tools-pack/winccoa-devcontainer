@@ -14,24 +14,11 @@
 
 ---
 
-## 🎯 Features
-
-- ✅ **Complete WinCC OA Environment** - Event Manager, Data Manager, PostgreSQL NextGen Archive
-- ✅ **VS Code Remote SSH** - Full IDE integration with automatic extension installation
-- ✅ **PostgreSQL Fix** - Runs as non-root user (`winccoa`) for proper PostgreSQL operation
-- ✅ **Persistent SSH Keys** - No certificate warnings after rebuilds
-- ✅ **Locale Support** - Pre-configured `en_US.UTF-8` for WinCC OA projects
-- ✅ **Hot Reload Ready** - Mount your projects as volumes for live development
-- ✅ **Cross-Platform** - Works on Linux and Windows (WSL2)
-
----
-
 ## 🚀 Why This Project?
 
 **Problem:** Setting up WinCC OA development environments is time-consuming and error-prone:
 - Manual installation on every developer machine
 - "Works on my machine" issues
-- Complex PostgreSQL configuration (cannot run as root)
 - Missing locale settings causing runtime errors
 - No standardized development workflow
 
@@ -39,7 +26,6 @@
 - 🐳 **Consistent Environment** - Everyone works with the exact same setup
 - ⚡ **5-Minute Setup** - From clone to coding in one `docker compose up`
 - 🔧 **VS Code Integration** - Full IDE support with WinCC OA extensions pre-installed
-- 🔄 **Version Control Ready** - Share container config, not installation files
 - 🛠️ **Production-Like** - Same runtime as deployment servers
 
 ---
@@ -58,7 +44,6 @@
 2. Download: **WinCC OA 3.21 for Debian Linux (x86_64)**
    - File name: `WinCCOA-3.21.0-debian.x86_64.zip` (or similar)
 3. Place the ZIP file in the **`installer/`** directory
-4. **DO NOT commit this file** - it's already in `.gitignore`
 
 ---
 
